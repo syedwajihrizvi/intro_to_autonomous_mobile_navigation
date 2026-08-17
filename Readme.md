@@ -28,3 +28,29 @@ Ensure all required message types and ROS 2 client libraries are included in you
   <depend>geometry_msgs</depend>
   <depend>std_msgs</depend>
   <depend>turtlesim</depend>
+```
+
+### 2. Setting up nodes (`setup.py`) 
+Ensure all the neccessary nodes are setup so you can run them
+```python
+  entry_points={
+    'console_scripts': [
+        'ex_1_node = main_controller.ex_1_node:main',
+        'ex_2_node = main_controller.ex_2_node:main',
+        'ex_3_object_node = main_controller.ex_3.object_node:main',
+        'ex_3_main_node = main_controller.ex_3.main_node:main',
+        'ex_4_cop_node = main_controller.ex_4.cop:main',
+        'ex_4_robber_node = main_controller.ex_4.robber:main',
+        'ex_5_avoid_obstacle = main_controller.ex_5_node:main',
+        'ex_6_avoid_obstacles = main_controller.ex_6_node:main',
+    ],
+},
+```
+
+### 3. Building
+Each time you update anything, run the following in sequence from the /ros_ws directory:
+
+```bash
+colcon build
+source install/setup.bash
+```
